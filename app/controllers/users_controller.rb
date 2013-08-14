@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if current_user && current_user == user 
       if current_user.companies.count > 1
-        redirect_to companies_path(current_user.companies.first)
+        redirect_to company_path(current_user.companies.first)
       else
         redirect_to new_company_path(:notices => params[:notices])
       end
