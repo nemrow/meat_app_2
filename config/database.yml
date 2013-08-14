@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: meat_app_2_development
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: meat_app_2_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: meat_app_2_production
+  pool: 5
+
+cucumber:
+  <<: *test
