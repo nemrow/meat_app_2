@@ -5,6 +5,7 @@ MeatApp2::Application.routes.draw do
     resources :companies, :only => [:show]
   end
   resources :companies do 
+     resources :suppliers
   end
 
   get 'signup' => 'users#new'

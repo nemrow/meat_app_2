@@ -1,2 +1,8 @@
-<h1>Suppliers#index</h1>
-<p>Find me in app/views/suppliers/index.html.erb</p>
+<%= link_to 'Add Supplier', new_company_supplier_path(@company) %>
+<table>
+<% @suppliers.each do |supplier| %>
+  <tr>
+    <td><%= link_to supplier.name, company_supplier_path(@company, supplier) %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,19 +1,23 @@
+Given(/^am associated to a company$/) do
+  create_company
+end
+
 Given(/^and on my suppliers page$/) do
-  pending # express the regexp above with the code you wish you had
+  click_link("Suppliers")
 end
 
 When(/^I click 'add a supplier'$/) do
-  pending # express the regexp above with the code you wish you had
+  click_link("Add Supplier")
 end
 
 When(/^fill in the suppliers name$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'supplier[name]', :with => 'Harris Ranch'
 end
 
 When(/^I click 'Save Supplier'$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button('Add Supplier')
 end
 
 Then(/^I am taken to the 'add order \/ delivery day pages'$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content("Update Supplier")
 end

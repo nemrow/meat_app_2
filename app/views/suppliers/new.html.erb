@@ -1,2 +1,4 @@
-<h1>Suppliers#new</h1>
-<p>Find me in app/views/suppliers/new.html.erb</p>
+<%= form_for @supplier, :url => company_suppliers_path(@company) do |f| %>
+  <%= f.text_field 'name', :placeholder => 'Supplier Name' %>
+  <%= f.submit 'Add Supplier' %>
+<% end %>

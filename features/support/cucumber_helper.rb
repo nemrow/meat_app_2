@@ -8,6 +8,11 @@ module CucumberHelper
     click_button 'Create Account'
   end
 
+  def create_company
+    fill_in 'company[name]', :with => 'Nemrows Meats'
+    click_button 'Create Company'
+  end
+
   def sign_out
     visit signout_path
   end

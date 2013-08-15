@@ -17,6 +17,7 @@ group :development, :test do
   gem 'faker'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 gem 'jquery-rails'

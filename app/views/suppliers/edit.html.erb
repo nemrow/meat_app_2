@@ -1,0 +1,5 @@
+<h1>Update Supplier</h1>
+<%= form_for @supplier, :html => {:method => 'put'}, :url => company_supplier_path(@company, @supplier) do |f| %>
+  <%= f.text_field 'name', :placeholder => 'Supplier Name' %>
+  <%= f.submit 'Update Supplier' %>
+<% end %>

@@ -17,6 +17,7 @@
       <% if current_user %>
         <li class="header-welcome-text">Hello <%= current_user.first_name %></li>
         <li class="divider"></li>
+        <li><%= link_to 'Suppliers', company_suppliers_path(current_user.companies.first) if current_user.companies.count > 0 %>
         <li><%= link_to 'Signout', signout_path %></li>
       <% else %>
         <li><%= link_to 'Login', login_path %></li>
