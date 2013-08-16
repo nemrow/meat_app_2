@@ -7,23 +7,23 @@
       <th>Products</th>
     </tr>
   </thead>
-  <tr>
     <% @products.each do |product| %>
-      <td><%= product.name %></td>
+      <tr>
+        <td><%= product.name %></td>
+      </tr>
     <% end %>
-  </tr>
 </table>
 
 <table>
   <thead>
     <tr>
-      <th rowspan="2">Order / Delivery Days</th>
+      <th colspan="2">Order / Delivery Days</th>
     </tr>
   </thead>
-  <tr>
     <% @order_days.each do |order_day| %>
-      <td><%= order_day.day %></td>
-      <td><%= order_day.duration %></td>
+      <tr>
+        <td><%= order_day.day %></td>
+        <td><%= order_day.duration %></td>
+      </tr>
     <% end %>
-  </tr>
 </table>

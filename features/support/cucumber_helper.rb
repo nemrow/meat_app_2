@@ -15,6 +15,13 @@ module CucumberHelper
     add_supplier
   end
 
+  def login_with_company_and_supplier_and_product
+    login_with_company_and_supplier
+    click_link("add new product")
+    fill_in 'product[name]', :with => 'Burger Meat'
+    click_button("save product")
+  end
+
   def create_company
     fill_in 'company[name]', :with => 'Nemrows Meats'
     click_button 'Create Company'

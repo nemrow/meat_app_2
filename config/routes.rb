@@ -1,15 +1,5 @@
 MeatApp2::Application.routes.draw do
 
-  get "products/new"
-
-  get "products/create"
-
-  get "products/edit"
-
-  get "products/update"
-
-  get "products/destroy"
-
   root :to => 'sessions#new'
   resources :users do
     resources :companies, :only => [:show]
@@ -21,6 +11,7 @@ MeatApp2::Application.routes.draw do
 
   resources :suppliers, :only => :none do
     resources :products
+    resources :order_days
   end
 
   get 'signup' => 'users#new'

@@ -17,9 +17,19 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @supplier = @product.supplier
   end
 
   def update
+    product = Product.find(params[:id])
+    supplier = product.supplier
+    company = supplier.company
+    if product.update_attributes(params[:product])
+      redirect_to edit_company_supplier_path(company, supplier)
+    else
+
+    end
   end
 
   def destroy

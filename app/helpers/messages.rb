@@ -10,4 +10,8 @@ module Messages
   def product_save_error
     "could not save product"
   end
+
+  def order_day_save_error
+    "could not save order day"
+  end
 end
