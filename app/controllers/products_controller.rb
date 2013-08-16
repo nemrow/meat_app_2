@@ -28,10 +28,18 @@ class ProductsController < ApplicationController
     if product.update_attributes(params[:product])
       redirect_to edit_company_supplier_path(company, supplier)
     else
-
+      redirect_to edit_supplier_product_path(supplier, product, :errors => {:product => [Messages.product_edit_error]})
     end
   end
 
   def destroy
+    product = Product.find(params[:id])
+    supplier = product.supplier
+    company = supplier.company
+    if product.destroy
+      redirect_to edit_company_supplier_path(company, supplier)
+    else
+      redirect_to edit_company_supplier_path(company, supplier, :errors => {:product => [Messages.product_destroy_error]})
+    end
   end
 end

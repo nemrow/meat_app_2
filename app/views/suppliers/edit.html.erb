@@ -14,14 +14,14 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to 'edit', edit_supplier_product_path(@supplier, product), :class => 'edit_product_btn' %></td>
-        <td><%= link_to 'delete', supplier_product_path(@supplier, product), :method => :delete %></td>
+        <td><%= link_to 'edit', edit_supplier_product_path(@supplier, product), :class => 'edit_btn' %></td>
+        <td><%= link_to 'delete', supplier_product_path(@supplier, product), :method => :delete, :class => 'delete_btn' %></td>
       </tr>
     <% end %>
 </table>
 
 <%= link_to 'add order / delivery day', new_supplier_order_day_path(@supplier) %>
-<table>
+<table id="order_days_table">
   <thead>
     <tr>
       <th colspan="4">Order / Delivery Days</th>
@@ -31,8 +31,8 @@
       <tr>
         <td><%= order_day.day %></td>
         <td><%= order_day.duration %></td>
-        <td><%= link_to 'edit', edit_supplier_order_day_path(@supplier, order_day) %></td>
-        <td><%= link_to 'delete', supplier_order_day_path(@supplier, order_day), :method => :delete %></td>
+        <td><%= link_to 'edit', edit_supplier_order_day_path(@supplier, order_day), :class => 'edit_btn' %></td>
+        <td><%= link_to 'delete', supplier_order_day_path(@supplier, order_day), :method => :delete, :class => 'delete_btn' %></td>
       </tr>
     <% end %>
 </table>

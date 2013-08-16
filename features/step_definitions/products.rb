@@ -28,7 +28,7 @@ Given(/^I am logged in with a company and supplier with a product$/) do
 end
 
 When(/^I click the 'edit' button for the products$/) do
-  find(:css, 'table#products_table tr td a.edit_product_btn').click
+  find(:css, 'table#products_table tr td a.edit_btn').click
 end
 
 When(/^fill in 'product name' with 'New Product Name'$/) do
@@ -42,4 +42,13 @@ end
 Then(/^I should see that new product name on the edit suppliers page$/) do
   page.should have_content("Update Supplier")
   page.should have_content("New Product Name")
+end
+
+When(/^I click the 'delete' button for the products$/) do
+  find(:css, 'table#products_table tr td a.delete_btn').click
+end
+
+Then(/^I should not see any products on the edit supplier page$/) do
+  page.should have_content("Update Supplier")
+  page.should_not have_content("burger meat")
 end

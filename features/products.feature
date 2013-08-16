@@ -15,3 +15,9 @@ Feature: Add, remove and edit products
     And fill in 'product name' with 'New Product Name'
     And I click 'Update Product'
     Then I should see that new product name on the edit suppliers page 
+
+  Scenario: Delete product
+    Given I am logged in with a company and supplier with a product
+    And on the edit suppliers page
+    When I click the 'delete' button for the products
+    Then I should not see any products on the edit supplier page

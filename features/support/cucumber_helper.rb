@@ -22,6 +22,14 @@ module CucumberHelper
     click_button("save product")
   end
 
+  def login_with_company_and_supplier_order_day
+    login_with_company_and_supplier
+    click_link("add order / delivery day")
+    select('Thursday', :from => "order_day[day]")
+    fill_in 'order_day[duration]', :with => 1
+    click_button("save order delivery day")
+  end
+
   def create_company
     fill_in 'company[name]', :with => 'Nemrows Meats'
     click_button 'Create Company'

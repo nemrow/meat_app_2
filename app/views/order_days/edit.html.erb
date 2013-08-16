@@ -1,2 +1,6 @@
-<h1>OrderDays#edit</h1>
-<p>Find me in app/views/order_days/edit.html.erb</p>
+<h1>Edit Order / Delivery Days</h1>
+<%= form_for @order_day, :url => supplier_order_day_path(@supplier, @order_day), :method => :put do |f| %>
+  <%= f.select("day", @days_of_week) %>
+  <%= f.text_field 'duration' %>
+  <%= f.submit 'update order delivery day' %>
+<% end %>

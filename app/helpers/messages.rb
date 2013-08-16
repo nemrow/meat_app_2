@@ -14,4 +14,12 @@ module Messages
   def order_day_save_error
     "could not save order day"
   end
+
+  def product_edit_error
+    "could not update product"
+  end
+
+  def product_destroy_error
+    "could not delete this product"
+  end
 end
