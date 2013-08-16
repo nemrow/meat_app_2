@@ -1,2 +1,29 @@
-<h1>Suppliers#show</h1>
-<p>Find me in app/views/suppliers/show.html.erb</p>
+<%= link_to "edit supplier", edit_company_supplier_path(@company, @supplier) %>
+<h1><%= @supplier.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Products</th>
+    </tr>
+  </thead>
+  <tr>
+    <% @products.each do |product| %>
+      <td><%= product.name %></td>
+    <% end %>
+  </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Order / Delivery Days</th>
+    </tr>
+  </thead>
+  <tr>
+    <% @order_days.each do |order_day| %>
+      <td><%= order_day.day %></td>
+      <td><%= order_day.duration %></td>
+    <% end %>
+  </tr>
+</table>

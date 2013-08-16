@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     if current_user && current_user == user 
-      if current_user.companies.count > 1
+      if current_user.companies.count > 0
         redirect_to company_path(current_user.companies.first)
       else
         redirect_to new_company_path(:notices => params[:notices])

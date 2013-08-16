@@ -1,0 +1,4 @@
+<%= form_for @product, :url => supplier_products_path(@supplier), :method => :post do |f| %>
+  <%= f.text_field 'name', :placeholder => 'Product Name' %>
+  <%= f.submit 'save product' %>
+<% end %>

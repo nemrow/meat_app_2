@@ -18,6 +18,8 @@ class SuppliersController < ApplicationController
   def edit
     @company = Company.find(params[:company_id])
     @supplier = Supplier.find(params[:id])
+    @products = @supplier.products
+    @order_days = @supplier.order_days
   end
 
   def update
@@ -35,5 +37,7 @@ class SuppliersController < ApplicationController
   def show
     @company = Company.find(params[:company_id])
     @supplier = Supplier.find(params[:id])
+    @products = @supplier.products
+    @order_days = @supplier.order_days
   end
 end

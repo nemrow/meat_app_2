@@ -1,5 +1,34 @@
 <h1>Update Supplier</h1>
 <%= form_for @supplier, :html => {:method => 'put'}, :url => company_supplier_path(@company, @supplier) do |f| %>
   <%= f.text_field 'name', :placeholder => 'Supplier Name' %>
-  <%= f.submit 'Update Supplier' %>
+  <%= f.submit 'Update Supplier Name' %>
 <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan='2'>Products</th>
+    </tr>
+  </thead>
+  <tr>
+    <% @products.each do |product| %>
+      <td><%= product.name %></td>
+    <% end %>
+  </tr>
+</table>
+
+<%= link_to 'add new product', new_supplier_product_path(@supplier) %>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Order / Delivery Days</th>
+    </tr>
+  </thead>
+  <tr>
+    <% @order_days.each do |order_day| %>
+      <td><%= order_day.day %></td>
+      <td><%= order_day.duration %></td>
+    <% end %>
+  </tr>
+</table>
