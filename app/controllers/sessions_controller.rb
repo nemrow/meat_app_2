@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    @errors = params[:errors]
-    @user = User.new
+    if current_user
+      redirect_to user_path(current_user)
+    else
+      @errors = params[:errors]
+      @user = User.new
+    end
   end
 
   def create
