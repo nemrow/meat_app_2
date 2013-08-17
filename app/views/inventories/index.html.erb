@@ -1,4 +1,4 @@
-<h1>Inventory for <%= @supplier.name %></h1>
+<h1 class="page_header_text">Inventory for <%= @supplier.name %></h1>
 <%= form_tag update_supplier_products_supplier_inventories_path(@supplier), :method => :put do %>
   <% @inventories.each do |inventory| %>
   <label><%= inventory.product.name %></label>
