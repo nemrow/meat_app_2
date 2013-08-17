@@ -7,11 +7,21 @@ MeatApp2::Application.routes.draw do
   
   resources :companies do 
      resources :suppliers
+     resources :inventories do
+      collection do
+        get 'supplier_list'
+      end
+    end
   end
 
   resources :suppliers, :only => :none do
     resources :products
     resources :order_days
+    resources :inventories do
+      collection do
+        put 'update_supplier_products'
+      end
+    end
   end
 
   get 'signup' => 'users#new'

@@ -14,7 +14,7 @@ describe Order do
   end 
 
   it "should set order_date field to today" do
-    date_formatted(Order.last.order_date).should == date_formatted(Time.now)
+    Order.last.order_date_string.should == date_formatted(Time.now)
   end
 
   it "should set delivery_date according to the delivery_days" do

@@ -2,7 +2,7 @@ class CreateInventories < ActiveRecord::Migration
   def change
     create_table :inventories do |t|
       t.integer :quantity
-      t.date :date
+      t.string :date_string
       t.integer :product_id
       t.integer :supplier_id
       t.integer :company_id

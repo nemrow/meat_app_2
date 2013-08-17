@@ -1,0 +1,10 @@
+<h1>Inventory for <%= @supplier.name %></h1>
+<%= form_tag update_supplier_products_supplier_inventories_path(@supplier), :method => :put do %>
+  <% @inventories.each do |inventory| %>
+  <label><%= inventory.product.name %></label>
+    <%= fields_for 'inventory[]', inventory do |inventory_form| %>
+      <%= inventory_form.text_field "quantity" %>
+    <% end %>
+  <% end %>
+  <%= submit_tag 'Save Inventory' %>
+<% end %>

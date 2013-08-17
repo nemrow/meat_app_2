@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130813190122) do
 
   create_table "inventories", :force => true do |t|
     t.integer  "quantity"
-    t.date     "date"
+    t.string   "date_string"
     t.integer  "product_id"
     t.integer  "supplier_id"
     t.integer  "company_id"
@@ -39,13 +39,13 @@ ActiveRecord::Schema.define(:version => 20130813190122) do
 
   create_table "orders", :force => true do |t|
     t.integer  "quantity"
-    t.date     "order_date"
-    t.date     "delivery_date"
+    t.string   "order_date_string"
+    t.string   "delivery_date_string"
     t.integer  "product_id"
     t.integer  "supplier_id"
     t.integer  "company_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "products", :force => true do |t|

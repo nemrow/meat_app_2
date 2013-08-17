@@ -1,7 +1,7 @@
 include ApplicationHelper
 
 class Order < ActiveRecord::Base
-  attr_accessible :company_id, :delivery_date, :order_date, :product_id, :quantity, :supplier_id
+  attr_accessible :company_id, :delivery_date_string, :order_date_string, :product_id, :quantity, :supplier_id
 
   belongs_to :supplier
   belongs_to :product
@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   before_save :set_order_date
 
   def set_order_date
-    self.order_date = Time.now
+    self.order_date_string = date_formatted(Time.now)
   end
 
   def set_delivery_date

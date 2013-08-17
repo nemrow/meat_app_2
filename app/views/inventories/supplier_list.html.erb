@@ -1,0 +1,11 @@
+<h1>Take Inventory</h1>
+<table>
+  <thead>
+    <th>Suppliers</th>
+  </thead>
+  <% @suppliers.each do |supplier| %>
+    <tr>
+      <td><%= link_to supplier.name, supplier_inventories_path(supplier) %></td>
+    </tr>
+  <% end %>
+</table>
