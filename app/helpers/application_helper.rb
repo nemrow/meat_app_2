@@ -5,6 +5,10 @@ module ApplicationHelper
     date.strftime("%m-%d-%Y")
   end
 
+  def day_of_week(date)
+    date.strftime('%A')
+  end
+
   def current_user
     User.find(session[:user_id]) if session[:user_id]
   end

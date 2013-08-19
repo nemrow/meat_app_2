@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   before_save :set_order_date
 
   def set_order_date
-    self.order_date_string = date_formatted(Time.now)
+    self.order_date_string = date_formatted(Time.now) if !order_date_string
   end
 
   def set_delivery_date

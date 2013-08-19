@@ -10,7 +10,7 @@ class Inventory < ActiveRecord::Base
   before_save :set_date
 
   def set_date
-    date_formatted(Time.now)
+    date_formatted(Time.now) if !date_string
   end
 
   def self.update_from_inventory_form(form_hash)

@@ -1,10 +1,49 @@
 <h1 class="page_header_text">Order for <%= @supplier.name %></h1>
 <%= form_tag update_supplier_line_supplier_orders_path(@supplier), :method => :put do %>
-  <% @orders.each do |order| %>
-  <label><%= order.product.name %></label>
-    <%= fields_for 'order[]', order do |order_form| %>
-      <%= order_form.text_field "quantity" %>
-    <% end %>
-  <% end %>
+  <table class="order_table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Inventory</th>
+        <th>Transit</th>
+        <th>Order</th>
+      </tr>
+    </thead>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.product.name %></td>
+        <td><%= order.product.get_inventory(Time.now) %></td>
+        <td><%= 'test' %></td>
+        <td>
+          <%= fields_for 'order[]', order do |order_form| %>
+          <%= order_form.text_field "quantity" %>
+          <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan='4'>
+          <table>
+            <thead>
+              <th>Date</th>
+              <th>Inventory</th>
+              <th>Transit</th>
+              <th>Order</th>
+            </thead>
+            <% (1..3).each do |week| %>
+            <% date = Time.now - week.weeks %>
+              <tr>
+                <td><%= date_formatted(date) %></td>
+                <td><%= order.product.get_inventory(date) %></td>
+                <td><%= order.product.get_in_transit(date) %></td>
+                <td><%= order.product.get_order(date) %></td>
+              </tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+
+      <% end %>
+  </table>
   <%= submit_tag 'Save Order' %>
 <% end %>
