@@ -19,7 +19,11 @@
         <li class="divider"></li>
         <% if current_user.companies.count > 0 %>
           <li><%= link_to 'Suppliers', company_suppliers_path(current_user.companies.first) %></li>
+          <li class="divider"></li>
           <li><%= link_to 'Take Inventory', supplier_list_company_inventories_path(current_user.companies.first) %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Place Orders', supplier_list_company_orders_path(current_user.companies.first) %></li>
+          <li class="divider"></li>
         <% end %>
         <li><%= link_to 'Signout', signout_path %></li>
       <% else %>

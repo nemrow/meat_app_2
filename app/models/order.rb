@@ -16,4 +16,11 @@ class Order < ActiveRecord::Base
   def set_delivery_date
     # pending
   end
+
+  def self.update_from_order_form(form_hash)
+    form_hash.each do |order_id, quantity|
+    order = self.find(order_id)
+    order.update_attributes(quantity)
+    end
+  end
 end

@@ -1,8 +1,8 @@
-class InventoriesController < ApplicationController
+class OrdersController < ApplicationController
   def index
     @supplier = Supplier.find(params[:supplier_id])
     @company = @supplier.company
-    @inventories = @supplier.get_or_create_todays_suppliers_inventories
+    @orders = @supplier.get_or_create_todays_suppliers_orders
   end
 
   def supplier_list
@@ -12,7 +12,8 @@ class InventoriesController < ApplicationController
 
   def update_supplier_line
     supplier = Supplier.find(params[:supplier_id])
-    Inventory.update_from_inventory_form(params[:inventory])
-    redirect_to supplier_inventories_path(supplier)
+    Order.update_from_order_form(params[:order])
+    redirect_to supplier_orders_path(supplier)
   end
 end
+

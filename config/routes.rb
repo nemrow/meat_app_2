@@ -6,8 +6,8 @@ MeatApp2::Application.routes.draw do
   end
   
   resources :companies do 
-     resources :suppliers
-     resources :inventories do
+    resources :suppliers
+    resources :inventories, :orders do
       collection do
         get 'supplier_list'
       end
@@ -17,9 +17,9 @@ MeatApp2::Application.routes.draw do
   resources :suppliers, :only => :none do
     resources :products
     resources :order_days
-    resources :inventories do
+    resources :inventories, :orders do
       collection do
-        put 'update_supplier_products'
+        put 'update_supplier_line'
       end
     end
   end

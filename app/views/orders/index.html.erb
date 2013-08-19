@@ -1,0 +1,10 @@
+<h1 class="page_header_text">Order for <%= @supplier.name %></h1>
+<%= form_tag update_supplier_line_supplier_orders_path(@supplier), :method => :put do %>
+  <% @orders.each do |order| %>
+  <label><%= order.product.name %></label>
+    <%= fields_for 'order[]', order do |order_form| %>
+      <%= order_form.text_field "quantity" %>
+    <% end %>
+  <% end %>
+  <%= submit_tag 'Save Order' %>
+<% end %>
