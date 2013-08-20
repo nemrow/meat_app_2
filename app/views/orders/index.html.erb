@@ -13,7 +13,7 @@
       <tr>
         <td><%= order.product.name %></td>
         <td><%= order.product.get_inventory(Time.now) %></td>
-        <td><%= 'test' %></td>
+        <td><%= order.product.get_in_transit(Time.now) %></td>
         <td>
           <%= fields_for 'order[]', order do |order_form| %>
           <%= order_form.text_field "quantity" %>
@@ -23,7 +23,7 @@
       
       <tr>
         <td colspan='4'>
-          <table>
+          <table class="order_history_table">
             <thead>
               <th>Date</th>
               <th>Inventory</th>
@@ -33,10 +33,10 @@
             <% (1..3).each do |week| %>
             <% date = Time.now - week.weeks %>
               <tr>
-                <td><%= date_formatted(date) %></td>
-                <td><%= order.product.get_inventory(date) %></td>
-                <td><%= order.product.get_in_transit(date) %></td>
-                <td><%= order.product.get_order(date) %></td>
+                <td class="order_history_date"><%= date_formatted(date) %></td>
+                <td class="order_history_inventory"><%= order.product.get_inventory(date) %></td>
+                <td class="order_history_in_transit"><%= order.product.get_in_transit(date) %></td>
+                <td class="order_history_order"><%= order.product.get_order(date) %></td>
               </tr>
             <% end %>
           </table>

@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class Company < ActiveRecord::Base
   attr_accessible :name
 
@@ -6,4 +8,10 @@ class Company < ActiveRecord::Base
   has_many :suppliers
   has_many :orders
   has_many :inventories
+
+  def get_ordering_suppliers(day)
+    suppliers.select do |supplier|
+      supplier.get_ordering_days.include?(day_of_week(day))
+    end
+  end
 end

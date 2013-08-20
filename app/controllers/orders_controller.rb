@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def supplier_list
     @company = Company.find(params[:company_id])
-    @suppliers = @company.suppliers
+    @suppliers = @company.get_ordering_suppliers(Time.now)
   end
 
   def update_supplier_line

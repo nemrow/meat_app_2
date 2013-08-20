@@ -14,7 +14,11 @@ class Order < ActiveRecord::Base
   end
 
   def set_delivery_date
-    # pending
+    todays_order_day_set = self.supplier.order_days.select do |day|
+      day.day == day_of_week(Time.now)
+    end
+    days_from_now = todays_order_day_set.first.duration
+    update_attributes(:delivery_date_string => date_formatted(Time.now + days_from_now.days))
   end
 
   def self.update_from_order_form(form_hash)

@@ -1,13 +1,10 @@
 Feature: Add company to user
 
-  In order to manage inventory
-  A user
-  Should add a company
-
+  @blank_user
   Scenario: Add a company
-    Given I am logged in
+    Given I am logged in as an existing user
     And my account is not associated to a company
-    And I am on the 'create new company' page
-    And I fill in the company name
-    When I click 'add company'
-    Then I shoud be taken to the company page
+    And the page should say 'Create Company'
+    And I fill in 'company' fields with 'name' as 'Nemrows Meats'
+    When I click the 'Create Company' button
+    Then the page should say 'Nemrows Meats'

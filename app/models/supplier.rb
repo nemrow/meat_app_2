@@ -15,6 +15,7 @@ class Supplier < ActiveRecord::Base
       inventory = Inventory.includes(:product).find_or_create_by_date_string_and_product_id(date_formatted(Time.now), product.id)
       self.inventories << inventory
       self.company.inventories << inventory
+      product.inventories << inventory
       inventories << inventory
     end
     inventories
@@ -23,11 +24,17 @@ class Supplier < ActiveRecord::Base
   def get_or_create_todays_suppliers_orders
     orders = []
     products.each do |product|
-      inventory = Order.includes(:product).find_or_create_by_order_date_string_and_product_id(date_formatted(Time.now), product.id)
-      self.orders << inventory
-      self.company.orders << inventory
-      orders << inventory
+      order = Order.includes(:product).find_or_create_by_order_date_string_and_product_id(date_formatted(Time.now), product.id)
+      self.orders << order
+      self.company.orders << order
+      product.orders << order
+      order.set_delivery_date
+      orders << order
     end
     orders
+  end
+
+  def get_ordering_days
+    order_days.map {|day| day.day }
   end
 end

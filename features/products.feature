@@ -1,23 +1,12 @@
-Feature: Add, remove and edit products
+Feature: Add products
   
+  @blank_user @company @supplier
   Scenario: Add product to the supplier
-    Given I am logged in with a company and supplier
+    Given I am logged in as an existing user
+    And have an associated company named 'Nemrows Meats'
+    And have a supplier attatched to that company named 'Harris Ranch'
     And on the edit suppliers page
-    When I click 'add product'
-    And fill in 'product name' with 'burger meat'
-    And click 'save product'
-    Then I should see that product on the suppliers edit page
-
-  Scenario: Edit product
-    Given I am logged in with a company and supplier with a product
-    And on the edit suppliers page
-    When I click the 'edit' button for the products
-    And fill in 'product name' with 'New Product Name'
-    And I click 'Update Product'
-    Then I should see that new product name on the edit suppliers page 
-
-  Scenario: Delete product
-    Given I am logged in with a company and supplier with a product
-    And on the edit suppliers page
-    When I click the 'delete' button for the products
-    Then I should not see any products on the edit supplier page
+    When I click the 'add new product' link
+    And I fill in 'product' fields with 'name' as 'Burger Meat'
+    And I click the 'save product' button
+    Then the page should say 'Burger Meat'

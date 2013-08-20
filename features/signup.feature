@@ -1,28 +1,28 @@
 Feature: Create an account
-  In order to organize inventory
-  A future user
-  Should sign up
 
   Scenario: Sign Up
-    Given I am on the sign up page
-    And fill in my 'first name' with 'Jordan' 
-    And fill in my 'last name' with 'Nemrow'
-    And fill in my 'email' with 'nemrowj@gmail.com'
-    And fill in a 'password' with 'password'
-    When I press 'Create Account'
-    Then page should say 'Welcome to the Meat App Jordan'
+    Given I am not a registered user
+    And I am on the sign up page
+    And I fill in 'user' fields with 'first_name' as 'Jordan'
+    And I fill in 'user' fields with 'last_name' as 'Nemrow'
+    And I fill in 'user' fields with 'email' as 'nemrowj@gmail.com'
+    And I fill in 'user' fields with 'password' as 'password'
+    When I click the 'Create Account' button
+    Then the page should say 'Welcome to the Meat App Jordan!'
 
+  @blank_user
   Scenario: Log in
     Given I am an existing user
     And I am on the login page
-    And I fill in 'email' with 'nemrowj@gmail.com'
-    And I fill in 'password' with 'password'
-    When I click 'login'
-    Then page should say 'Hello Jordan'
+    And I fill in 'user' fields with 'email' as 'nemrowj@gmail.com'
+    And I fill in 'user' fields with 'password' as 'password'
+    When I click the 'Login' button
+    Then the page should say 'Hello Jordan'
 
+  @blank_user
   Scenario: Log out
-    Given I am logged in
-    And I click 'logout'
-    Then page should say 'Login'
+    Given I am logged in as an existing user
+    When I click the 'Signout' link
+    Then the page should say 'Login'
 
 
