@@ -22,13 +22,11 @@
 
   <body>
   <%= render :partial => 'layouts/header' %>
-  <%= render :partial => 'shared/errors', :locals => {:errors => @errors} if @errors %>
-  <%= render :partial => 'shared/notices', :locals => {:notices => @notices} if @notices %>
-
-
-    <%= yield %>
-
-    
-    <%= javascript_include_tag "application" %>
+  <div class="row">
+    <div class="large-12 large-centered columns">
+      <%= yield %>
+    </div>
+  </div>  
+  <%= javascript_include_tag "application" %>
   </body>
 </html>

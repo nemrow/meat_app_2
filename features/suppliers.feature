@@ -8,4 +8,4 @@ Feature: Add, edit, and remove suppliers
     When I click the 'Add Supplier' link
     And I fill in 'supplier' fields with 'name' as 'Harris Ranch'
     When I click the 'Add Supplier' button
-    Then the page should say 'Update Supplier'
+    Then the page should say 'Update Harris Ranch'

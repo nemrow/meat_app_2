@@ -14,4 +14,10 @@ class Company < ActiveRecord::Base
       supplier.get_ordering_days.include?(day_of_week(day))
     end
   end
+
+  def get_deliveries(date)
+    orders.includes(:supplier, :product).select do |order|
+      order.delivery_date_string == date_formatted(date)
+    end
+  end
 end

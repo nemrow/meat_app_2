@@ -1,5 +1,4 @@
 MeatApp2::Application.routes.draw do
-
   root :to => 'sessions#new'
   resources :users do
     resources :companies, :only => [:show]
@@ -7,6 +6,7 @@ MeatApp2::Application.routes.draw do
   
   resources :companies do 
     resources :suppliers
+    resources :deliveries, :only => [:index]
     resources :inventories, :orders do
       collection do
         get 'supplier_list'

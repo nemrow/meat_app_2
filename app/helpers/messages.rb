@@ -22,4 +22,8 @@ module Messages
   def product_destroy_error
     "could not delete this product"
   end
+
+  def delete_product
+    "If you delete this product, all of its orders and inventory history will be lost as well"
+  end
 end

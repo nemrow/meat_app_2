@@ -20,6 +20,8 @@
         <% if current_user.companies.count > 0 %>
           <li><%= link_to 'Suppliers', company_suppliers_path(current_user.companies.first) %></li>
           <li class="divider"></li>
+          <li><%= link_to 'Deliveries', company_deliveries_path(current_user.companies.first) %></li>
+          <li class="divider"></li>
           <li><%= link_to 'Take Inventory', supplier_list_company_inventories_path(current_user.companies.first) %></li>
           <li class="divider"></li>
           <li><%= link_to 'Place Orders', supplier_list_company_orders_path(current_user.companies.first) %></li>
@@ -33,3 +35,8 @@
     </ul>
   </section>
 </nav>
+<%= render :partial => 'shared/errors', :locals => {:errors => @errors} if @errors %>
+<%= render :partial => 'shared/notices', :locals => {:notices => @notices} if @notices %>
+<% if @page_header %>
+  <h1 class="page_header"><%= @page_header %></h1>
+<% end %> 

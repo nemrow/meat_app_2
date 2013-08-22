@@ -3,6 +3,8 @@ include ApplicationHelper
 class Product < ActiveRecord::Base
   attr_accessible :name, :supplier_id
 
+  validates :name, :presence => {:message => 'Product must have a name'}
+
   belongs_to :supplier
   has_many :inventories
   has_many :orders

@@ -6,5 +6,5 @@ Given(/^on the edit suppliers page$/) do
   click_link('Suppliers')
   click_link('Harris Ranch')
   click_link('edit supplier')
-  page.should have_content('Update Supplier')
+  page.should have_content('Update Harris Ranch')
 end

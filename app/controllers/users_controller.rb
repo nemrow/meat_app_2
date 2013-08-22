@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def new
     @errors = params[:errors]
     @user = User.new
+    @page_header = "Sign Up"
   end
 
   def show

@@ -1,38 +1,45 @@
-<h1>Update Supplier</h1>
 <%= form_for @supplier, :html => {:method => 'put'}, :url => company_supplier_path(@company, @supplier) do |f| %>
   <%= f.text_field 'name', :placeholder => 'Supplier Name' %>
-  <%= f.submit 'Update Supplier Name' %>
+  <%= f.submit 'Update Supplier Name', :class => 'button' %>
 <% end %>
 
-<%= link_to 'add new product', new_supplier_product_path(@supplier) %>
+<%= link_to 'add new product', new_supplier_product_path(@supplier), :class => 'button' %>
 <table id="products_table">
   <thead>
     <tr>
-      <th colspan="3">Products</th>
+      <th colspan="100%">Products</th>
     </tr>
   </thead>
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= link_to 'edit', edit_supplier_product_path(@supplier, product), :class => 'edit_btn' %></td>
-        <td><%= link_to 'delete', supplier_product_path(@supplier, product), :method => :delete, :class => 'delete_btn' %></td>
+        <td>
+          <%= link_to 'edit', edit_supplier_product_path(@supplier, product), :class => 'edit_btn' %>
+          &nbsp | &nbsp
+          <%= link_to 'delete', supplier_product_path(@supplier, product), :method => :delete, :class => 'delete_btn', :confirm => Messages.delete_product %>
+        </td>
       </tr>
     <% end %>
 </table>
 
-<%= link_to 'add order / delivery day', new_supplier_order_day_path(@supplier) %>
+<%= link_to 'add order / delivery day', new_supplier_order_day_path(@supplier), :class => 'button' %>
 <table id="order_days_table">
   <thead>
     <tr>
-      <th colspan="4">Order / Delivery Days</th>
+      <th>Day</th>
+      <th>Duration</th>
+      <th></th>
     </tr>
   </thead>
     <% @order_days.each do |order_day| %>
       <tr>
         <td><%= order_day.day %></td>
         <td><%= order_day.duration %></td>
-        <td><%= link_to 'edit', edit_supplier_order_day_path(@supplier, order_day), :class => 'edit_btn' %></td>
-        <td><%= link_to 'delete', supplier_order_day_path(@supplier, order_day), :method => :delete, :class => 'delete_btn' %></td>
+        <td>
+          <%= link_to 'edit', edit_supplier_order_day_path(@supplier, order_day), :class => 'edit_btn' %>
+          &nbsp | &nbsp
+          <%= link_to 'delete', supplier_order_day_path(@supplier, order_day), :method => :delete, :class => 'delete_btn' %>
+        </td>
       </tr>
     <% end %>
 </table>

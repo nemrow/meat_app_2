@@ -1,10 +1,18 @@
 <h1 class="page_header_text">Inventory for <%= @supplier.name %></h1>
 <%= form_tag update_supplier_line_supplier_inventories_path(@supplier), :method => :put, :class => 'inventory_form' do %>
-  <% @inventories.each do |inventory| %>
-  <label><%= inventory.product.name %></label>
-    <%= fields_for 'inventory[]', inventory do |inventory_form| %>
-      <%= inventory_form.text_field "quantity" %>
+  <table>
+    <thead>
+      <th>Product</th>
+      <th>Quantity</th>
+    </thead>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><%= inventory.product.name %></td>
+        <%= fields_for 'inventory[]', inventory do |inventory_form| %>
+          <td><%= inventory_form.text_field "quantity" %></td>
+        <% end %>
+      </tr>
     <% end %>
-  <% end %>
+  </table>
   <%= submit_tag 'Save Inventory' %>
 <% end %>

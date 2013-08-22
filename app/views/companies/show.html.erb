@@ -1,1 +1,4 @@
-<h1><%= @company.name %></h1>
+<%= link_to 'Manage Suppliers', company_suppliers_path(current_user.companies.first), :class => 'button large expand' %>
+<%= link_to 'View Todays Deliveries', company_deliveries_path(current_user.companies.first), :class => 'button large expand' %>
+<%= link_to 'Take Inventory', supplier_list_company_inventories_path(current_user.companies.first), :class => 'button large expand' %>
+<%= link_to 'Place Orders', supplier_list_company_orders_path(current_user.companies.first), :class => 'button large expand' %>

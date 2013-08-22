@@ -1,5 +1,5 @@
 Given(/^on the inventory page of my only supplier$/) do
-  click_link("Take Inventory")
+  first(:link, "Take Inventory").click
   page.find('h1.page_header_text').should have_content("Take Inventory")
   click_link("Harris Ranch")
   page.find('h1.page_header_text').should have_content("Inventory for Harris Ranch")

@@ -1,5 +1,9 @@
-<ul>
-<%- notices.each do |notice| -%>
-  <li><%= notice %></li>
-<%- end -%>
-</ul>
+<div class="row">
+  <div class="large-10 large-centered columns">
+    <div class="alert-box success round">
+        <% notices.each do |notice| %>
+          <p class="flash-text"><%= notice %></p>
+        <% end %>
+    </div>
+  </div>
+</div>

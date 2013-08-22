@@ -8,6 +8,6 @@ Given(/^I am logged in as a complete user$/) do
 end
 
 Given(/^on the order page of my supplier$/) do
-  click_link("Place Orders")
+  first(:link, "Place Orders").click
   click_link("Harris Ranch")
 end

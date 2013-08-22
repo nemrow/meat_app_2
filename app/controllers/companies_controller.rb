@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @notices = params[:notices]
+    @page_header = 'Create Company'
   end
 
   def create
@@ -16,5 +17,6 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @page_header = @company.name
   end
 end

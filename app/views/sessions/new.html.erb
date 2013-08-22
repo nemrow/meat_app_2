@@ -1,5 +1,5 @@
 <%= form_for @user, :url => login_path, :method => 'post' do |f| %>
   <%= f.text_field 'email', :placeholder => 'email' %>
   <%= f.password_field 'password', :placeholder => 'password' %>
-  <%= f.submit 'Login' %>
+  <%= f.submit 'Login', :class => 'button' %>
 <% end %>

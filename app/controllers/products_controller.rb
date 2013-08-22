@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   def new
     @supplier = Supplier.find(params[:supplier_id])
     @product = Product.new
+    @page_header = "Add Product"
+    @errors = params[:errors][:product] if params[:errors]
   end
 
   def create
@@ -12,13 +14,14 @@ class ProductsController < ApplicationController
       supplier.products << product
       redirect_to edit_company_supplier_path(company, supplier)
     else
-      redirect_to new_supplier_product_path(supplier, :errors => {:product => [Messages.product_save_error]})
+      redirect_to new_supplier_product_path(supplier, :errors => {:product => product.errors.messages})
     end
   end
 
   def edit
     @product = Product.find(params[:id])
     @supplier = @product.supplier
+    @errors = params[:errors][:product] if params[:errors]
   end
 
   def update
@@ -28,7 +31,7 @@ class ProductsController < ApplicationController
     if product.update_attributes(params[:product])
       redirect_to edit_company_supplier_path(company, supplier)
     else
-      redirect_to edit_supplier_product_path(supplier, product, :errors => {:product => [Messages.product_edit_error]})
+      redirect_to edit_supplier_product_path(supplier, product, :errors => {:product => product.errors.messages})
     end
   end
 

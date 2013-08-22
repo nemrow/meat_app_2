@@ -3,6 +3,8 @@ class OrderDaysController < ApplicationController
     @order_day = OrderDay.new
     @supplier = Supplier.find(params[:supplier_id])
     @days_of_week = days_of_week_options_array
+    @page_header = 'Add Order / Delivery Days'
+    @errors = params[:errors][:order_day] if params[:errors]
   end
 
   def create
@@ -13,7 +15,7 @@ class OrderDaysController < ApplicationController
       supplier.order_days << order_day
       redirect_to edit_company_supplier_path(company, supplier)
     else
-      redirect_to new_supplier_order_day_path(supplier, :errors => {:order_day => [Messages.order_day_save_error]})
+      redirect_to new_supplier_order_day_path(supplier, :errors => {:order_day => order_day.errors.messages})
     end
   end
 

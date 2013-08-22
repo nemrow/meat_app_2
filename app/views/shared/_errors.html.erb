@@ -1,5 +1,9 @@
-<ul>
-<%- errors.each do |field, message| -%>
-  <li><%= field %> - <%= message[0] %></li>
-<%- end -%>
-</ul>
+<div class="row">
+  <div class="large-10 large-centered columns">
+    <div class="alert-box alert round">
+      <% errors.each do |field, message| %>
+        <p class='flash-text'><%= field %> - <%= message[0] %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

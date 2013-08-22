@@ -24,12 +24,14 @@ Before('@complete_user') do
   # add order_days to supplier
   order_day_1 = day_of_week(Time.now)
   order_day_2 = day_of_week(Time.now - 2.days)
+  order_day_3 = day_of_week(Time.now - 4.days)
   @supplier.order_days << OrderDay.create(:day => order_day_1, :duration => 4)
   @supplier.order_days << OrderDay.create(:day => order_day_2, :duration => 4)
+  @supplier.order_days << OrderDay.create(:day => order_day_3, :duration => 4)
 
   # add 60 days of orders
   60.times do |num|
-    if [order_day_1, order_day_2].include?(day_of_week(Time.now - num.days))
+    if [order_day_1, order_day_2, order_day_3].include?(day_of_week(Time.now - num.days))
       order = Order.create( :quantity => Random.rand(10..100), 
                             :product_id => @product.id,
                             :order_date_string => date_formatted(Time.now - num.days),

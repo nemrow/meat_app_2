@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     else
       @errors = params[:errors]
       @user = User.new
+      @page_header = 'Sign In'
     end
   end
 

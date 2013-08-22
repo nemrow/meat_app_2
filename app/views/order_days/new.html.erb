@@ -1,6 +1,7 @@
-<h1>Add Order / Delivery Days</h1>
 <%= form_for @order_day, :url => supplier_order_days_path(@supplier) do |f| %>
+  <label for 'day'>Delivery Day</label>
   <%= f.select("day", @days_of_week, :selected => "monday") %>
-  <%= f.text_field 'duration' %>
-  <%= f.submit 'save order delivery day' %>
+  <label for 'day'>Delivery Day</label>
+  <%= f.text_field 'duration', :placeholder => '(ex: mon - wed is "2" days)', :class => 'small-9' %>
+  <%= f.submit 'save order delivery day', :class => 'button' %>
 <% end %>
