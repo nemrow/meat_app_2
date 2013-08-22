@@ -23,6 +23,7 @@ class OrderDaysController < ApplicationController
     @order_day = OrderDay.find(params[:id])
     @supplier = Supplier.find(params[:supplier_id])
     @days_of_week = days_of_week_options_array
+    @errors = params[:errors][:order_day] if params[:errors]
   end
 
   def update
@@ -32,7 +33,7 @@ class OrderDaysController < ApplicationController
     if order_day.update_attributes(params[:order_day])
       redirect_to edit_company_supplier_path(company, supplier)
     else
-      # WIP
+      redirect_to edit_supplier_order_day_path(supplier, order_day, :errors => {:order_day => order_day.errors.messages})
     end
   end
 
