@@ -4,6 +4,7 @@ class InventoriesController < ApplicationController
     @company = @supplier.company
     @inventories = @supplier.get_or_create_todays_suppliers_inventories
     @notices = params[:notices] if params[:notices]
+    @page_header = "Inventory for #{@supplier.name}"
   end
 
   def supplier_list
