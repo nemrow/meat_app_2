@@ -16,7 +16,7 @@
         <td><%= order.product.get_in_transit(Time.now) %></td>
         <td>
           <%= fields_for 'order[]', order do |order_form| %>
-          <%= order_form.text_field "quantity" %>
+          <%= order_form.text_field "quantity", :type => 'number', :min => 0 %>
           <% end %>
         </td>
       </tr>

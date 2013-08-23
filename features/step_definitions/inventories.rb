@@ -6,9 +6,5 @@ Given(/^on the inventory page of my only supplier$/) do
 end
 
 When(/^I fill in the the quantity with (\d+)$/) do |quantity|
-  page.find("input[type=text]").set(10)
-end
-
-Then(/^the page should display (\d+) on the updated page$/) do |quantity|
-  page.find("input[type=text]").value.should == '10'
+  page.find("input[type=number]").set(10)
 end

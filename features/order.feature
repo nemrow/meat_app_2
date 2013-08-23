@@ -6,7 +6,7 @@ Feature: Place and view orders
     And on the order page of my supplier
     When I fill in the the quantity with 10
     And I click the 'Save Order' button
-    Then the page should display 10 on the updated page
+    Then the page should say 'Order for Harris Ranch successfully taken'
 
   @complete_user  
   Scenario: View past order quantities

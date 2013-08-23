@@ -22,11 +22,11 @@ Then(/^show page$/) do
   save_and_open_page
 end
 
-When(/^I fill in the first text input in the '(.*)' form with '(.*)'$/) do |model, value|
-  page.find("form.#{model}_form input[type=text]").set(value)
+When(/^I fill in the first number input in the '(.*)' form with '(.*)'$/) do |model, value|
+  page.find("form.#{model}_form input[type=number]").set(value)
 end
 
-Then(/^the first text input in the '(.*)' form should have '(.*)'$/) do |model, value|
-  page.find("form.#{model}_form input[type=text]").value.should == value
+Then(/^the first number input in the '(.*)' form should have '(.*)'$/) do |model, value|
+  page.find("form.#{model}_form input[type=number]").value.should == value
 end
 

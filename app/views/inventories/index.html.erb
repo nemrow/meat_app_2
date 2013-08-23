@@ -9,7 +9,7 @@
       <tr>
         <td><%= inventory.product.name %></td>
         <%= fields_for 'inventory[]', inventory do |inventory_form| %>
-          <td><%= inventory_form.text_field "quantity" %></td>
+          <td><%= inventory_form.text_field "quantity", :type => 'number', :min => 0 %></td>
         <% end %>
       </tr>
     <% end %>

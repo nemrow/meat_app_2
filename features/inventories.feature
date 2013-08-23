@@ -6,6 +6,6 @@ Feature: Take Inventory
     And have an associated company named 'Nemrows Meats'
     And have a supplier attatched to that company named 'Harris Ranch'
     And on the inventory page of my only supplier
-    When I fill in the first text input in the 'inventory' form with '10'
+    When I fill in the first number input in the 'inventory' form with '10'
     And I click the 'Save Inventory' button
-    Then the first text input in the 'inventory' form should have '10'
+    Then the page should say 'Inventory for Harris Ranch Successfully Updated'
