@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @company = Company.find(params[:company_id])
     @suppliers = @company.get_ordering_suppliers(Time.now)
     @notices = params[:notices] if params[:notices]
+    @page_header = "Place Orders"
   end
 
   def update_supplier_line

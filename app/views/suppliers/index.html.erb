@@ -1,8 +1,4 @@
-<%= link_to 'Add Supplier', new_company_supplier_path(@company), :class => 'button' %>
-<table>
 <% @suppliers.each do |supplier| %>
-  <tr>
-    <td><%= link_to supplier.name, company_supplier_path(@company, supplier) %></td>
-  </tr>
+  <%= link_to supplier.name, company_supplier_path(@company, supplier), :class => 'small button expand' %>
 <% end %>
-</table>
+<%= link_to 'Add Supplier', new_company_supplier_path(@company), :class => 'button' %>

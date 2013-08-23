@@ -47,5 +47,6 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find(params[:id])
     @products = @supplier.products
     @order_days = @supplier.order_days
+    @page_header = @supplier.name
   end
 end

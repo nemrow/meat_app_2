@@ -10,6 +10,7 @@ class InventoriesController < ApplicationController
     @company = Company.find(params[:company_id])
     @suppliers = @company.suppliers
     @notices = params[:notices] if params[:notices]
+    @page_header = "Take Inventory"
   end
 
   def update_supplier_line
