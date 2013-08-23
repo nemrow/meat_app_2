@@ -21,7 +21,7 @@ module ApplicationHelper
       ['Tuesday', 'Tuesday'],
       ['Wednesday', 'Wednesday'],
       ['Thursday', 'Thursday'],
-      ['Friday', 'Firday'],
+      ['Friday', 'Friday'],
       ['Saturday', 'Saturday'],
       ['Sunday', 'Sunday']
     ]
