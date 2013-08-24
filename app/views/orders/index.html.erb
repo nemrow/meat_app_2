@@ -7,6 +7,7 @@
         <th>Inventory</th>
         <th>Transit</th>
         <th>Order</th>
+        <th>Suggesion</th>
       </tr>
     </thead>
     <% @orders.each do |order| %>
@@ -19,10 +20,11 @@
           <%= order_form.text_field "quantity", :type => 'number', :min => 0 %>
           <% end %>
         </td>
+        <td><%= order.product.get_order_suggestion(Time.now) %></td>
       </tr>
       
       <tr>
-        <td colspan='4'>
+        <td colspan='100%'>
           <table class="order_history_table">
             <thead>
               <th>Date</th>

@@ -24,4 +24,5 @@ Feature: Place and view orders
   Scenario: View past in transit orders quantities
     Given I am logged in as a complete user
     And on the order page of my supplier
+    And show page
     Then I should see the in_transit quantities
